@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folder Upload</title>
+</head>
+<body>
+<form action="/upload" method="post" enctype="multipart/form-data">
+<label for="folder">Upload Folder:</label>
+<input type="file" name="folder" id="folder" webkitdirectory directory multiple required>
+<button type="submit">Upload</button>
+</form>
+</body>
+</html>
