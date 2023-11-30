@@ -35,16 +35,6 @@ console.log('***RunLINTProcess ** called')
 process.chdir('./DemoProject');
 console.log('directory change to ',process.cwd());
 
-exec('npm install ', (err, output) => {
-    // once the command has completed, the callback function is called
-    if (err) {
-        // log and return if we encounter an error
-        console.error("could not execute command: ", err)
-       // return
-    }
-    console.log('directory 0 ',process.cwd());
-    console.log("executed npm install \n", output)
-})
 
 exec('npm install eslint-plugin-lwc', (err, output) => {
     // once the command has completed, the callback function is called
