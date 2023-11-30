@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const storage = multer.memoryStorage();
 const { exec } = require('node:child_process')
-app.use(express.static('publuc'))
+app.use(express.static('public'))
 
 var LintResponse;
 app.get('/', function(req, res, next) {
@@ -34,6 +34,7 @@ function RunLINTProcess(){
 console.log('***RunLINTProcess ** called')
 process.chdir('./DemoProject');
 console.log('directory change to ',process.cwd());
+
 
 
 exec('npm install eslint-plugin-lwc', (err, output) => {
