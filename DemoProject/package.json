@@ -38,5 +38,8 @@
     "**/{aura,lwc}/**": [
       "eslint"
     ]
+  },
+  "dependencies": {
+    "eslint-plugin-lwc": "^0.0.1-security"
   }
 }

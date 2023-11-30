@@ -1,0 +1,24 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folder Upload</title>
+</head>
+<body>
+<button >Statt linting</button>
+<script>
+    // Log a message to the browser console
+    console.log('Client log: Page loaded');
+    // You can also use the Fetch API to send messages from the server to the client
+    fetch('/server-log')
+    .then(response => response.json())
+    .then(data => {
+    console.log('Message from server:', data.message);
+    })
+    .catch(error => {
+    console.error('Error fetching server log:', error);
+    });
+    </script>
+</body>
+</html> 
