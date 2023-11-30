@@ -14,12 +14,12 @@ app.get('/', function(req, res, next) {
     console.log("Hello world");
    res.sendFile(__dirname+'/public/index.html');
 });
-setTimeout(()=>{
+//setTimeout(()=>{
     app.get('/server-log', (req, res) => {
         // Send a message from the server to the client
         res.json({ message: LintResponse });
         });
-},2000)
+// },500)
 
 
 app.listen(port, () => {
