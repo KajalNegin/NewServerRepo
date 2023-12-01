@@ -34,8 +34,8 @@ function RunLINTProcess(){
 console.log('***RunLINTProcess ** called')
 process.chdir('./DemoProject');
 console.log('directory change to ',process.cwd());
-fun2();
-/*
+
+
 
 exec('npm install eslint-plugin-lwc', (err, output) => {
     // once the command has completed, the callback function is called
@@ -58,13 +58,12 @@ exec('npm install eslint @salesforce/eslint-config-lwc --save-dev', (err, output
     if(output){
         fun2();
     }
-})*/
+})
 function fun2(){
-exec('npm run lint:lwc', (err, output) => {
-    console.log('directory 2 ',process.cwd());
+exec('npx eslint force-app/main/default/lwc/**/*.js', (err, output) => {
     try{
         if (err) {
-          // console.error("could not execute lint  command: ", err)
+           console.error("could not execute lint  command: ", err)
          
         }
         
