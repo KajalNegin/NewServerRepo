@@ -67,7 +67,7 @@ function savedevConfig(){
 }
 
 function runLint(){
-    exec('npx eslint force-app/main/default/lwc/**/*.js', (err, output) => {
+    exec('npm run lint:lwc', (err, output) => {
         try{
             if (err) {
                console.error("could not execute lint  command: ", err)
