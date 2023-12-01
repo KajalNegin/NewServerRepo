@@ -46,7 +46,7 @@ function funNpmInstallESlint(){
             return
         }
         console.log('directory 1 ',process.cwd());
-        console.log("executed npm install \n", output)
+        console.log("executed npm install Command \n", output)
         savedevConfig();
     })
 }
@@ -58,7 +58,7 @@ function savedevConfig(){
             return
         }
         console.log('directory 2 ',process.cwd());
-        console.log("executed install eslint \n", output)
+        console.log("executed install eslint Command\n", output)
         if(output){
             runLint();
         }
@@ -74,7 +74,7 @@ function runLint(){
             }
             
             console.log('directory 3 ',process.cwd());
-            console.log("Output: lint command executed \n", output,"@@end")
+            console.log("Linting Command Executed \n", output,"@@end")
            
             LintResponse=JSON.stringify(output);
     
