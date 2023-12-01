@@ -4,22 +4,23 @@ const unzipper = require('unzipper');
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 const storage = multer.memoryStorage();
 const { exec } = require('node:child_process')
-app.use(express.static('public'))
+//app.use(express.static('public'))
 
 var LintResponse;
 app.get('/', function(req, res, next) {
     console.log("Hello world");
-   res.sendFile(__dirname+'/public/index.html');
+    res.send(LintResponse);
+  // res.sendFile(__dirname+'/public/index.html');
 });
-//setTimeout(()=>{
-    app.get('/server-log', (req, res) => {
-        // Send a message from the server to the client
-        res.json({ message: LintResponse });
-        });
-// },500)
+
+    // app.get('/server-log', (req, res) => {
+    //     // Send a message from the server to the client
+    //     res.json({ message: LintResponse });
+    //     });
+
 
 
 app.listen(port, () => {
