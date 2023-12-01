@@ -40,6 +40,8 @@
     ]
   },
   "dependencies": {
-    "eslint-plugin-lwc": "^0.0.1-security"
+    "eslint-plugin-lwc": "^0.0.1-security",
+    "@salesforce/eslint-config-lwc": "^3.5.2",
+    "eslint": "^8.54.0"
   }
 }
