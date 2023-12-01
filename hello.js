@@ -69,7 +69,7 @@ exec('npm run lint:lwc', (err, output) => {
         }
         
         console.log('directory 3 ',process.cwd());
-        console.log("Output: lint command executed \n", JSON.stringify(output),"@@end")
+        console.log("Output: lint command executed \n", output,"@@end")
        
         LintResponse=JSON.stringify(output);
 
