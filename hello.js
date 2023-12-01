@@ -34,49 +34,53 @@ function RunLINTProcess(){
 console.log('***RunLINTProcess ** called')
 process.chdir('./DemoProject');
 console.log('directory change to ',process.cwd());
+funNpmInstallESlint();
+}
 
-
-
-exec('npm install eslint-plugin-lwc', (err, output) => {
-    // once the command has completed, the callback function is called
-    if (err) {
-        // log and return if we encounter an error
-        console.error("could not execute command: ", err)
-        return
-    }
-    console.log('directory 0 ',process.cwd());
-    console.log("executed npm install \n", output)
-})
-
-exec('npm install eslint @salesforce/eslint-config-lwc --save-dev', (err, output) => {
-    if (err) {
-        console.error("could not execute command: ", err)
-        return
-    }
-    console.log('directory 1 ',process.cwd());
-    console.log("executed install eslint \n", output)
-    if(output){
-        fun2();
-    }
-})
-function fun2(){
-exec('npx eslint force-app/main/default/lwc/**/*.js', (err, output) => {
-    try{
+function funNpmInstallESlint(){
+    exec('npm install eslint-plugin-lwc', (err, output) => {
+        // once the command has completed, the callback function is called
         if (err) {
-           console.error("could not execute lint  command: ", err)
-         
+            // log and return if we encounter an error
+            console.error("could not execute command: ", err)
+            return
+        }
+        console.log('directory 1 ',process.cwd());
+        console.log("executed npm install \n", output)
+        savedevConfig();
+    })
+}
+
+function savedevConfig(){
+    exec('npm install eslint @salesforce/eslint-config-lwc --save-dev', (err, output) => {
+        if (err) {
+            console.error("could not execute command: ", err)
+            return
+        }
+        console.log('directory 2 ',process.cwd());
+        console.log("executed install eslint \n", output)
+        if(output){
+            runLint();
+        }
+    })
+}
+
+function runLint(){
+    exec('npx eslint force-app/main/default/lwc/**/*.js', (err, output) => {
+        try{
+            if (err) {
+               console.error("could not execute lint  command: ", err)
+             
+            }
+            
+            console.log('directory 3 ',process.cwd());
+            console.log("Output: lint command executed \n", output,"@@end")
+           
+            LintResponse=JSON.stringify(output);
+    
+        }catch(e){
+        console.log('errors catch',JSON.stringify(e));
         }
         
-        console.log('directory 3 ',process.cwd());
-        console.log("Output: lint command executed \n", output,"@@end")
-       
-        LintResponse=JSON.stringify(output);
-
-    }catch(e){
-    console.log('errors catch',JSON.stringify(e));
+    })
     }
-    
-})
-}
-}
-
